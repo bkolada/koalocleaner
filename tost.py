@@ -4,11 +4,6 @@ __author__ = 'Kaef'
 
 from HTMLParser import HTMLParser, starttagopen
 
-aa = open("Section0001.xhtml", "rb")
-
-cont = aa.read()
-cont = cont.replace("&","_")
-
 class Container:
     def __init__(self, parent=None):
         self.parent = parent
@@ -22,12 +17,12 @@ class Container:
         return self.childs[-1]
 
 class MyHTMLParser(HTMLParser):
-    def __init__(self):
+    def __init__(self, rep):
         HTMLParser.__init__(self)
         self.consider = False
         self.data = Container()
         self.current = self.data
-
+        self.rep_pattern = rep
 
     def handle_starttag(self, tag, attrs):
         if tag == "body":
@@ -47,15 +42,20 @@ class MyHTMLParser(HTMLParser):
 
     def handle_data(self, data):
         if self.consider:
-            print "--%s--"%data.__str__()
             self.current = self.current.add_child()
-            self.current.content = data
+            self.current.content = data.replace(self.rep_pattern, "&")
             self.current=self.current.parent
 
-parser = MyHTMLParser()
-parser.feed(cont)
-a = parser.data.childs[1]
-print a.childs
-print a.tag
-print a.attr
-print "--%s--"%a.content
+
+class Parser:
+    def get_file_content(self, path ):
+        aa = open(path, "rb")
+        cont = aa.read()
+        cont = cont.replace("&","DHTN__")
+        return cont
+
+    def run(self, path):
+        parser = MyHTMLParser("DHTN__")
+        parser.feed(self.get_file_content(path))
+        return parser.data
+
