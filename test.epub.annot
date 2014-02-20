@@ -1,0 +1,47 @@
+<annotationSet xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns="http://ns.adobe.com/digitaleditions/annotations">
+  <publication>
+    <dc:identifier></dc:identifier>
+    <dc:title></dc:title>
+    <dc:creator></dc:creator>
+    <dc:publisher></dc:publisher>
+  </publication>
+  <annotation>
+    <dc:identifier>urn:uuid:9f3760d5-2ad8-4b09-9f44-2c36ef0149ba</dc:identifier>
+    <dc:date>2014-02-18T23:37:50Z</dc:date>
+    <target>
+      <fragment start="OEBPS/Text/Section0001.xhtml#point(/1/4/2/2/1:415)" end="OEBPS/Text/Section0001.xhtml#point(/1/4/2/2/1:426)" progress="50">
+      <text>s imperdiet</text>
+      </fragment>
+    </target>
+    <content>
+      <dc:date>2014-02-18T23:37:50Z</dc:date>
+      <text>a1</text>
+    </content>
+  </annotation>
+  <annotation>
+    <dc:identifier>urn:uuid:fb0f8660-e5e4-4d0e-af2a-4fc639794212</dc:identifier>
+    <dc:date>2014-02-18T23:38:25Z</dc:date>
+    <target>
+      <fragment start="OEBPS/Text/Section0001.xhtml#point(/1/4/2/2/1:12)" end="OEBPS/Text/Section0001.xhtml#point(/1/4/2/2/1:17)" progress="50">
+      <text>dolor</text>
+      </fragment>
+    </target>
+    <content>
+      <dc:date>2014-02-18T23:38:25Z</dc:date>
+      <text>a2</text>
+    </content>
+  </annotation>
+  <annotation>
+    <dc:identifier>urn:uuid:251ca140-f6e9-4949-b83f-0511242059c2</dc:identifier>
+    <dc:date>2014-02-18T23:38:43Z</dc:date>
+    <target>
+      <fragment start="OEBPS/Text/Section0001.xhtml#point(/1/4/4/1:40)" end="OEBPS/Text/Section0001.xhtml#point(/1/4/4/1:45)" progress="50">
+      <text>. Nam</text>
+      </fragment>
+    </target>
+    <content>
+      <dc:date>2014-02-18T23:38:43Z</dc:date>
+      <text>a3</text>
+    </content>
+  </annotation>
+</annotationSet>
