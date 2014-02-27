@@ -1,3 +1,3 @@
 # -*- coding: utf-8 -*-
 
-from MainWindow import MainWindow
+from MainWindow import Controller
