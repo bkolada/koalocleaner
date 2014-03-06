@@ -4,12 +4,37 @@ import xml.etree.ElementTree as ET
 
 class AnnotationHandler:
     def __init__(self):
-        pass
+        self.annot_long = "{http://ns.adobe.com/digitaleditions/annotations}annotation"
+        self.target_long = "{http://ns.adobe.com/digitaleditions/annotations}target"
+        self.fragment_long = "{http://ns.adobe.com/digitaleditions/annotations}fragment"
+
+    def get_start(self, attr):
+        lev1 = attr.split("#")
+        lev2 = lev1[1].strip("()").split(":")
+    #     todo: return proporly values
+
+
+    def get_fragment_fields_from_target(self, target):
+        for i  in target:
+            print i
+        fragment = target.find(self.fragment_long)
+        print fragment, fragment.attrib["start"]
+
+    def get_target_from_child(self, child):
+        return child.find(self.target_long)
+
+    def add_annotation_from_child(self,child):
+        print child
+        target = self.get_target_from_child(child)
+        print self.get_fragment_fields_from_target(target)
 
     def parse_xml(self, filename):
         tree = ET.parse(filename)
         root = tree.getroot()
-        print root
+        for child in root.findall(self.annot_long):
+            self.add_annotation_from_child(child)
+
+
 
 if __name__  == "__main__":
     a = AnnotationHandler()
