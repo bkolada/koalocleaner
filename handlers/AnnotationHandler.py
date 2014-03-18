@@ -14,11 +14,18 @@ class AnnotationHandler:
         lev2a = lev2[0].split("/")
         return lev1[0], lev2a, lev2[1]
 
+    def get_end(self, attr):
+        lev1 = attr.split("#")
+        lev2 = lev1[1].strip("(point)/").split(":")
+        lev2a = lev2[0].split("/")
+        return lev1[0], lev2a, lev2[1]
+
     def get_fragment_fields_from_target(self, target):
         for i  in target:
             print i
         fragment = target.find(self.fragment_long)
-        print "o",fragment,  self.get_start(fragment.attrib["start"])
+        print "start", self.get_start(fragment.attrib["start"])
+        print "end", self.get_start(fragment.attrib["end"])
 
     def get_target_from_child(self, child):
         return child.find(self.target_long)
