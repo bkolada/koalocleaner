@@ -15,11 +15,11 @@ def _open_file_selection_window(handler, title='Open File', desc=""):
 
 def open_annot_window(handler):
     return _open_file_selection_window(handler, title="Select Kobo Annotation File",
-                                       desc= 'Kobo Annotations File(*.annot)')
+                                       desc= 'Kobo Annotations File(*.annot)').__str__()
 
 def open_epub_window(handler):
     return _open_file_selection_window(handler, title="Select Correspond Epub File",
-                                       desc= 'Epub File(*.epub)')
+                                       desc= 'Epub File(*.epub)').__str__()
 
 def fill_annotation_table(window_handler, table_handler, annotations):
     table_handler.setRowCount(annotations.annot_num())
@@ -31,15 +31,15 @@ def fill_annotation_table(window_handler, table_handler, annotations):
         table_handler.setItem(id, 4, QtGui.QTableWidgetItem(annot[1][2]))
         table_handler.setItem(id, 5, QtGui.QTableWidgetItem(annot[-1]))
 
-def _clear_entire_temp_folder(dir_path):
+def _clear_entire_temp_folder(path):
     try:
-        path =  os.path.join(dir_path,"tmp_epub","")
         shutil.rmtree(path)
         os.mkdir(path)
     except:
-        raise we.ClearTemporaryFolderFailed()
+        raise we.ClearTemporaryFolderFailed(path)
 
-def unpack_epub(path, dir_path):
-    _clear_entire_temp_folder(dir_path)
-    # zip = zipfile.ZipFile(path)
-
+def unpack_epub(epub_path, dir_path):
+    path =  os.path.join(dir_path,"tmp_epub","")
+    _clear_entire_temp_folder(path)
+    zip = zipfile.ZipFile(epub_path)
+    zip.extractall(path)
