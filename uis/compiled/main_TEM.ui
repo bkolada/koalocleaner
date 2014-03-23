@@ -66,6 +66,9 @@
              </item>
              <item row="1" column="0">
               <widget class="QTableWidget" name="annot_table">
+               <property name="editTriggers">
+                <set>QAbstractItemView::NoEditTriggers</set>
+               </property>
                <property name="selectionMode">
                 <enum>QAbstractItemView::SingleSelection</enum>
                </property>

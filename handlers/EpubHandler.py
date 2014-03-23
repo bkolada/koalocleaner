@@ -47,14 +47,14 @@ class MyHTMLParser(HTMLParser):
             self.current=self.current.parent
 
 
-class Parser:
+class EpubParser:
     def get_file_content(self, path ):
         aa = open(path, "rb")
         cont = aa.read()
         cont = cont.replace("&","DHTN__")
         return cont
 
-    def run(self, path):
+    def parse(self, path):
         parser = MyHTMLParser("DHTN__")
         parser.feed(self.get_file_content(path))
         return parser.data

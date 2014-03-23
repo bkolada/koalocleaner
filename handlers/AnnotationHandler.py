@@ -53,6 +53,12 @@ class AnnotationHandler:
             yield i
         return
 
+    def annot_num(self):
+        return len(self.annotations)
+
+    def get_annotation_at(self, id):
+        return self.annotations[id]
+
 if __name__  == "__main__":
     a = AnnotationHandler()
     a.parse_xml("../test.epub.annot")

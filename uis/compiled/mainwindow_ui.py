@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'main_TEM.ui'
 #
-# Created: Mon Feb 24 01:34:59 2014
+# Created: Sun Mar 23 23:15:41 2014
 #      by: PyQt4 UI code generator 4.8.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -61,6 +61,7 @@ class Ui_MainWindow(object):
         self.label_4.setObjectName(_fromUtf8("label_4"))
         self.gridLayout_2.addWidget(self.label_4, 0, 0, 1, 1)
         self.annot_table = QtGui.QTableWidget(self.widget_6)
+        self.annot_table.setEditTriggers(QtGui.QAbstractItemView.NoEditTriggers)
         self.annot_table.setSelectionMode(QtGui.QAbstractItemView.SingleSelection)
         self.annot_table.setSelectionBehavior(QtGui.QAbstractItemView.SelectRows)
         self.annot_table.setObjectName(_fromUtf8("annot_table"))
