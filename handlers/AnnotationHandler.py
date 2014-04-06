@@ -27,17 +27,26 @@ class AnnotationHandler:
         fragment = target.find(self.fragment_long)
         start = self.get_start(fragment.attrib["start"])
         end = self.get_start(fragment.attrib["end"])
-        text = fragment.find(self.text_long)
-        return start, end, text.text
+        text = self.get_text_from_fragment(fragment)
+        return start, end, text
 
     def get_target_from_child(self, child):
         return child.find(self.target_long)
 
+    def get_text_from_fragment(self, fragment):
+        text = fragment.find(self.text_long)
+        if text == None:
+            return ""
+        return text.text
+
     def add_annotation_from_child(self,child):
         target = self.get_target_from_child(child)
         destination = self.get_fragment_fields_from_target(target)
-        comment = child.find(self.content_long).find(self.text_long)
-        self.annotations.append([destination[0], destination[1], destination[2], comment.text])
+        print destination
+        if destination[0][1]==[''] or  destination[1][2]=='0':
+            return
+        comment = self.get_text_from_fragment(child.find(self.content_long))
+        self.annotations.append([destination[0], destination[1], destination[2], comment])
 
     def parse_xml(self, filename):
         tree = ET.parse(filename)
@@ -61,7 +70,8 @@ class AnnotationHandler:
 
 if __name__  == "__main__":
     a = AnnotationHandler()
-    a.parse_xml("../test.epub.annot")
+    # a.parse_xml("../test.epub.annot")
+    a.parse_xml("../test/[1] Gra Endera - Card Orson Scott.epub.annot")
     for i in a.iterate_over_annotations():
         print i
 
