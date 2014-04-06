@@ -75,6 +75,9 @@
                <property name="selectionBehavior">
                 <enum>QAbstractItemView::SelectRows</enum>
                </property>
+               <property name="sortingEnabled">
+                <bool>true</bool>
+               </property>
                <attribute name="horizontalHeaderStretchLastSection">
                 <bool>true</bool>
                </attribute>
@@ -117,6 +120,13 @@
         </widget>
        </item>
        <item>
+        <widget class="QPushButton" name="load">
+         <property name="text">
+          <string>Load</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QWidget" name="widget_4" native="true">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
@@ -136,7 +146,16 @@
               </widget>
              </item>
              <item>
-              <widget class="QPlainTextEdit" name="before"/>
+              <widget class="QTextEdit" name="before">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+              </widget>
              </item>
             </layout>
            </widget>
@@ -152,11 +171,43 @@
               </widget>
              </item>
              <item>
-              <widget class="QPlainTextEdit" name="after"/>
+              <widget class="QTextEdit" name="after">
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+              </widget>
              </item>
             </layout>
             <zorder>after</zorder>
             <zorder>label_3</zorder>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QWidget" name="widget_7" native="true">
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="save_paragraph_changes">
+            <property name="text">
+             <string>Save changes in paragraph</string>
+            </property>
            </widget>
           </item>
          </layout>
