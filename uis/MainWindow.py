@@ -65,8 +65,6 @@ class Controller(QtGui.QMainWindow):
         sf.set_text_in_ctrl(self.ui.after, text)
         sf.set_text_selection(self.ui.after,int(annot[3]),int(annot[4]))
 
-        # print container[1][4][4][1].content
-
     def save_paragraph_changes(self):
         text = self.ui.after.toPlainText().__str__()
         annot = sf.get_selected(self.ui.annot_table)
